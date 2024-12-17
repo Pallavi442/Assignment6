@@ -1,24 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap');
 
+
+.app-container {
+  display: flex;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  width: 100%;
+}
+
 .bg-container {
-  grid-area: bg;
-  background: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
-  height: 100%;
+  background-image: url('./images/bg-main-desktop.png');
+  display: flex;
+  width: 30%;
+  /* height: 100vh; */
 }
 
 .form-container {
-  grid-area: form;
   background-color: white;
-  height: 100vh;
   display: flex;
+  width: 70%;
+  padding: 15% 5%;
+  /* height: 100vh; */
 }
 
-.app-container {
-  display: grid;
-  grid-template-areas: 'bg bg bg form form';
-  align-items: center;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 500;
+
+.bg-container::before {
+  content: "";
+  background-image: url('./images/cardFrontNew1.png');
+  background-size: contain;
+  position: absolute;
+  top: 19%  ;
+  left: 6%  ;
+  width: 398px  ;
+  height: 216px  ;
+}
+
+.bg-container::after {
+  content: "";
+  background-image: url('./images/bg-card-back.png');
+  background-size: contain;
+  position: absolute;
+  top: 54%  ;
+  left: 15%  ;
+  width: 400px  ;
+  height: 219px  ;
+
 }
 
 .form-main {
@@ -30,7 +56,7 @@
 
 label {
   display: block;
-  padding: 13px;
+  padding: 13px 0px;
 }
 
 input {
@@ -64,4 +90,168 @@ input {
   border-radius: 7px;
   padding: 10px;
   margin-top: 20px;
+}
+
+@media only screen and (max-width:1024.5px) {
+
+  .bg-container::after {
+    left: 5%;
+    content: "";
+    background-image: url('./images/bg-card-back.png');
+    background-size: contain;
+    position: absolute;
+    top: 58%  ;
+    left: 13%  ;
+    width: 249px  ;
+    height: 137px  ;
+  }
+
+  .bg-container::before {
+    content: "";
+    background-image: url('./images/cardFrontNew1.png');
+    position: absolute;
+    top: 32%  ;
+    left: 9%   ;
+    width: 252px  ;
+    height: 137px  ;
+
+  }
+}
+
+@media only screen and (max-width:768.5px) {
+  
+  .app-container {
+    flex-direction: column;
+  }
+
+  .bg-container {
+    background-image: url('./images/bg-main-desktop.png');
+    display: flex;
+    width: 100%  ;
+    /* height: 100vh; */
+    height: 350px  ;
+    background-size: cover;
+  }
+
+  .form-container {
+    background-color: white;
+    display: flex;
+    width: 90%;
+    padding: 15% 5%;
+    /* height: 100vh; */
+  }
+
+  .bg-container::before {
+    top: 35%  ;
+    left: 9%  ;
+    width: 339px  ;
+    height: 184px  ;
+    z-index: 7
+  }
+
+  .bg-container::after {
+    top: 20%;
+    left: 47%;
+    width: 325px  ;
+    height: 179px  ;
+  }
+
+}
+@media only screen and (max-width:678.5px) {
+  .app-container {
+    flex-direction: column;
+  }
+  .bg-container::before {
+  width: 324px;
+  height: 176px;
+  top: 238px;
+  }
+  .bg-container::after {
+  left: 44%;
+  width: 318px;
+  height: 174px;
+  }
+}
+
+
+@media only screen and (max-width:580.5px) {
+  .bg-container {
+    height: 270px;
+  }
+
+  .bg-container::after {
+    top: 10%;
+    left: 21%;
+    width: 293px;
+    height: 161px;
+  }
+
+
+.bg-container::before {
+  top: 27%  ;
+  left: 9%  ;
+  width: 276px;
+        height: 150px;
+}
+}
+
+@media only screen and (max-width:414.5px) {
+  .bg-container {
+    height: 270px;
+  }
+
+  .bg-container::after {
+    top: 7%  ;
+    left: 23%  ;
+    width: 280px  ;
+    height: 153px  ;
+  }
+
+
+.bg-container::before {
+  width: 295px ;
+  height: 160px ;
+}
+}
+
+@media only screen and (max-width:375.5px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .bg-container {
+    background-image: url('./images/bg-main-desktop.png');
+    display: flex;
+    width: 100%;
+    /* height: 100vh; */
+    height: 300px;
+  }
+
+  .form-container {
+    background-color: white;
+    display: flex;
+    width: 90%;
+    padding: 15% 5%;
+    /* height: 100vh; */
+  }
+
+  .bg-container::after {
+    left: 5%  ;
+    top: 22%;
+    left: 27%;
+    width: 237px;
+    height: 130px;
+  }
+
+  .bg-container::before {
+    top: 35% ;
+    left: 9% ;
+    width: 243px ;
+    height: 132px  ;
+    z-index: 9;
+  }
+
+  .app-container {
+    font-size: 12px;
+  }
 }

@@ -1,4 +1,6 @@
 import logo from './logo.svg';
+// import cardBackImg from './images/bg-card-back.png';
+// import cardfrontImg from './images/bg-card-front.png';
 import './App.css';
 
 function App() {

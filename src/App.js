@@ -20,6 +20,7 @@ function App() {
 
   //on userInfo Change
   const handleChange = (event) => {
+    console.log("value",event.target.value);
     const { name, value } = event.target;
     setCardData({ ...cardData, [name]: value });
   };
@@ -35,8 +36,8 @@ function App() {
       }
       if (!cardData.expDate) newErrors.expDate = "Expiration Date is required.";
       if (!cardData.cvc) newErrors.cvc = "CVC is required.";
-      else if (!/^\d{3,4}$/.test(cardData.cvc)) {
-        newErrors.cvc = "CVC must be 3 or 4 digits.";
+      else if (!/^\d{3}$/.test(cardData.cvc)) {
+        newErrors.cvc = "CVC must be 3 digits.";
       }
       console.log("newErrors",newErrors);
       setErrors(newErrors);
@@ -65,6 +66,21 @@ function App() {
       setErrors({});
   }
 
+
+  const formatCardNumber=()=>{
+    console.log("inside");
+    var cardNumber = document.getElementById("cardNumber");
+    var value = cardNumber.value.replace(/\D/g, '');
+    console.log("value",value);
+    var formattedValue = "";
+      for (var i = 0; i < value.length; i++) {
+        if (i % 4 == 0 && i > 0) {
+          formattedValue += " ";
+        }
+        formattedValue += value[i];
+      }
+      cardNumber.value = formattedValue;
+    }
 
   return (
     <div className="app-container">
@@ -130,6 +146,9 @@ function App() {
             placeholder='e.g 1234 5678 9123 0000'
             value={cardData.cardHolderNo}
             onChange={handleChange}
+            id="cardNumber" 
+            onInput={formatCardNumber}
+            maxlength="19" 
           />
           {errors.cardHolderNo && <span className="error-message">{errors.cardHolderNo}</span>}
           <div className='inline-container'>
@@ -154,6 +173,7 @@ function App() {
                 name='cvc'
                 value={cardData.cvc}
                 onChange={handleChange}
+                maxlength="3" 
                 
               />
                  {errors.cvc && <span className="error-message">{errors.cvc}</span>}

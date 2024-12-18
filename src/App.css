@@ -316,7 +316,7 @@ input {
   }
 
   .card-number {
-    font-size: 18px;
+    font-size: 15px;
     padding: 9% 3% 0% 3%;
   }
 }
@@ -355,7 +355,7 @@ input {
 
   .form-container {
     background-color: white;
-    display: flex;
+    /* display: flex; */
     width: 90%;
     padding: 15% 5%;
     /* height: 100vh; */

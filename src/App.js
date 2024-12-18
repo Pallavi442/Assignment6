@@ -50,13 +50,6 @@ function App() {
     if (validate()) {
       setConfrim(true); 
       console.log(cardData);
-      // setCardData({
-      //   cardHolderName: '',
-      //   cardHolderNo: '',
-      //   expDate: '',
-      //   cvc: ''
-      // });
-      // setErrors({});
     }
   };
 

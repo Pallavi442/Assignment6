@@ -105,7 +105,7 @@ function App() {
         </div>
         <div className='card-data1'>
         <div className="card-holder-name">
-          {cardData.cardHolderName || 'Pallavi Patil'}
+          {cardData.cardHolderName || 'cardholder name'}
         </div>
        
       

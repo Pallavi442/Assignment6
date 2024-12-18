@@ -18,10 +18,13 @@ function App() {
   const [errors, setErrors] = useState({});
   const [confirm,setConfrim]=useState(false);
 
-  //on userInfo Change
   const handleChange = (event) => {
-    console.log("value",event.target.value);
     const { name, value } = event.target;
+    setErrors((prevErrors) => {
+      const newErrors = { ...prevErrors };
+      delete newErrors[name]; 
+      return newErrors;
+    });
     setCardData({ ...cardData, [name]: value });
   };
 
@@ -39,7 +42,7 @@ function App() {
       else if (!/^\d{3}$/.test(cardData.cvc)) {
         newErrors.cvc = "CVC must be 3 digits.";
       }
-      console.log("newErrors",newErrors);
+      // console.log("newErrors",newErrors);
       setErrors(newErrors);
       return Object.keys(newErrors).length === 0;
     };
@@ -47,7 +50,7 @@ function App() {
   //on confirm button click function
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("cardData", cardData)
+    // console.log("cardData", cardData)
     if (validate()) {
       setConfrim(true); 
       console.log(cardData);
@@ -65,13 +68,21 @@ function App() {
       });
       setErrors({});
   }
+  const handleDateChange = (date) => {
+    setCardData({ ...cardData, expDate: date });
+    setErrors((prevErrors) => {
+      const newErrors = { ...prevErrors };
+      delete newErrors.expDate; 
+      return newErrors;
+    });
+  };
 
 
   const formatCardNumber=()=>{
-    console.log("inside");
+    // console.log("inside");
     var cardNumber = document.getElementById("cardNumber");
     var value = cardNumber.value.replace(/\D/g, '');
-    console.log("value",value);
+    // console.log("value",value);
     var formattedValue = "";
       for (var i = 0; i < value.length; i++) {
         if (i % 4 == 0 && i > 0) {
@@ -157,7 +168,8 @@ function App() {
               <DatePicker
                 className= {errors.expDate ?'error-input':"date-picker"}
                 selected={cardData.expDate}
-                onChange={(date) => setCardData({ ...cardData, expDate: date })}
+                // onChange={(date) => setCardData({ ...cardData, expDate: date })}
+                onChange={handleDateChange}
                 dateFormat="MM/yy"
                 showMonthYearPicker
                 placeholderText="MM/YY"

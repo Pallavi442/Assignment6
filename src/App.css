@@ -15,35 +15,76 @@
   /* height: 100vh; */
 }
 
+.card-number {
+  font-size: 28px;
+  letter-spacing: 2px;
+  color: white;
+  padding: 14% 3% 0% 3%;
+  text-align: center;
+}
+
+.card-data1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 3% 5%;
+}
+
+.card-holder-name {
+  text-transform: uppercase;
+  color: white
+}
+
+.card-expiry {
+  text-transform: uppercase;
+  color: white
+}
+
+
+
+.card-cvc {
+  position: absolute;
+  top: 45%;
+  left: 79%;
+  font-size: 14px;
+  color: white;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 2px;
+  text-align: right;
+}
+
 .form-container {
   background-color: white;
-  display: flex;
+  /* display: flex; */
   width: 70%;
   padding: 15% 5%;
   /* height: 100vh; */
 }
 
-
-.bg-container::before {
-  content: "";
-  background-image: url('./images/cardFrontNew1.png');
-  background-size: contain;
-  position: absolute;
-  top: 19%  ;
-  left: 6%  ;
-  width: 398px  ;
-  height: 216px  ;
+.svg-img {
+  padding-top: 10px;
+  padding-left: 10px;
 }
 
-.bg-container::after {
-  content: "";
+
+.card-front {
+  background-image: url('./images/bg-card-front.png');
+  background-size: contain;
+  position: absolute;
+  top: 19%;
+  left: 6%;
+  width: 394px;
+  height: 216px;
+}
+
+.card-back {
   background-image: url('./images/bg-card-back.png');
   background-size: contain;
   position: absolute;
-  top: 54%  ;
-  left: 15%  ;
-  width: 400px  ;
-  height: 219px  ;
+  top: 54%;
+  left: 15%;
+  width: 400px;
+  height: 219px;
 
 }
 
@@ -92,34 +133,97 @@ input {
   margin-top: 20px;
 }
 
+.error-message {
+  color: red
+}
+
+.error-input {
+  display: block;
+  width: 94.5%;
+  padding: 13px;
+  border: 1px solid red;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.thankyou-container {
+  background-color: white;
+  display: flex;
+  width: 70%;
+  padding: 15% 5%;
+}
+
+.thankyou-main {
+  margin: auto;
+  max-width: 500px;
+  width: 100%;
+}
+
+.thankyou-main img {
+  width: 13%;
+  padding-left: 45%;
+}
+
+.thankyou-main h3 {
+  letter-spacing: 2px;
+  text-align: center;
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.thankyou-main p {
+  color: grey;
+  text-align: center;
+}
+
 @media only screen and (max-width:1024.5px) {
 
-  .bg-container::after {
+  .card-back {
     left: 5%;
-    content: "";
     background-image: url('./images/bg-card-back.png');
     background-size: contain;
     position: absolute;
-    top: 58%  ;
-    left: 13%  ;
-    width: 249px  ;
-    height: 137px  ;
+    top: 58%;
+    left: 13%;
+    width: 249px;
+    height: 137px;
   }
 
-  .bg-container::before {
-    content: "";
-    background-image: url('./images/cardFrontNew1.png');
+  .card-front {
+    background-image: url('./images/bg-card-front.png');
     position: absolute;
-    top: 32%  ;
-    left: 9%   ;
-    width: 252px  ;
-    height: 137px  ;
+    top: 32%;
+    left: 9%;
+    width: 250px;
+    height: 137px;
+  }
 
+  .card-number {
+    font-size: 15px;
+    padding: 8% 3% 0% 3%;
+  }
+
+  .card-data1 {
+    padding: 3% 8%;
+  }
+
+  .card-holder-name {
+    font-size: 13px;
+  }
+
+  .card-expiry {
+    font-size: 13px;
+  }
+
+  .card-cvc {
+    top: 43%;
+    left: 75%;
+    font-size: 13px;
   }
 }
 
 @media only screen and (max-width:768.5px) {
-  
+
   .app-container {
     flex-direction: column;
   }
@@ -127,49 +231,66 @@ input {
   .bg-container {
     background-image: url('./images/bg-main-desktop.png');
     display: flex;
-    width: 100%  ;
-    /* height: 100vh; */
-    height: 350px  ;
+    width: 100%;
+    height: 350px;
     background-size: cover;
   }
 
   .form-container {
     background-color: white;
-    display: flex;
+    /* flex-wrap: wrap; */
     width: 90%;
     padding: 15% 5%;
-    /* height: 100vh; */
   }
 
-  .bg-container::before {
-    top: 35%  ;
-    left: 9%  ;
-    width: 339px  ;
-    height: 184px  ;
+  .card-front {
+    top: 35%;
+    left: 9%;
+    width: 325px;
+    height: 179px;
     z-index: 7
   }
 
-  .bg-container::after {
+  .card-back {
     top: 20%;
     left: 47%;
-    width: 325px  ;
-    height: 179px  ;
+    width: 325px;
+    height: 179px;
   }
 
+  .card-number {
+    font-size: 22px;
+    padding: 12% 3% 0% 3%;
+  }
+
+  .thankyou-container {
+    width: 90%;
+  }
+
+  .thankyou-main img {
+    margin-top: 20px;
+  }
 }
+
 @media only screen and (max-width:678.5px) {
   .app-container {
     flex-direction: column;
   }
-  .bg-container::before {
-  width: 324px;
-  height: 176px;
-  top: 238px;
+
+  .card-front {
+    width: 324px;
+    height: 176px;
+    top: 238px;
   }
-  .bg-container::after {
-  left: 44%;
-  width: 318px;
-  height: 174px;
+
+  .card-back {
+    left: 44%;
+    width: 318px;
+    height: 174px;
+  }
+
+  .card-number {
+    font-size: 19px;
   }
 }
 
@@ -179,7 +300,7 @@ input {
     height: 270px;
   }
 
-  .bg-container::after {
+  .card-back {
     top: 10%;
     left: 21%;
     width: 293px;
@@ -187,12 +308,17 @@ input {
   }
 
 
-.bg-container::before {
-  top: 27%  ;
-  left: 9%  ;
-  width: 276px;
-        height: 150px;
-}
+  .card-front {
+    top: 27%;
+    left: 9%;
+    width: 293px;
+    height: 161px;
+  }
+
+  .card-number {
+    font-size: 18px;
+    padding: 9% 3% 0% 3%;
+  }
 }
 
 @media only screen and (max-width:414.5px) {
@@ -200,18 +326,18 @@ input {
     height: 270px;
   }
 
-  .bg-container::after {
-    top: 7%  ;
-    left: 23%  ;
-    width: 280px  ;
-    height: 153px  ;
+  .card-back {
+    top: 7%;
+    left: 23%;
+    width: 280px;
+    height: 153px;
   }
 
 
-.bg-container::before {
-  width: 295px ;
-  height: 160px ;
-}
+  .card-front {
+    width: 280px;
+    height: 153px;
+  }
 }
 
 @media only screen and (max-width:375.5px) {
@@ -235,19 +361,19 @@ input {
     /* height: 100vh; */
   }
 
-  .bg-container::after {
-    left: 5%  ;
+  .card-back {
+    left: 5%;
     top: 22%;
     left: 27%;
     width: 237px;
     height: 130px;
   }
 
-  .bg-container::before {
-    top: 35% ;
-    left: 9% ;
-    width: 243px ;
-    height: 132px  ;
+  .card-front {
+    top: 35%;
+    left: 9%;
+    width: 237px;
+    height: 130px;
     z-index: 9;
   }
 
